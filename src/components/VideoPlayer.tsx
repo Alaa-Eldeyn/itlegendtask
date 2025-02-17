@@ -1,6 +1,7 @@
 "use client";
 import { useGlobalContext } from "@/utils/context";
 import dynamic from "next/dynamic";
+import { Suspense } from "react";
 
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
@@ -25,19 +26,22 @@ function VideoPlayer({
             isVideoExpanded ? "lg:h-[600px]" : "lg:h-[400px]"
           }`}
         >
-          <ReactPlayer
-            url={currentVideo?.toString()}
-            width="100%"
-            height="100%"
-            playing={true}
-            loop={true}
-            muted={true}
-          />
-          <div className="absolute inset-0 bg-black/20 flex flex-col justify-between ">
-            <div className="h-[80px] bg-red-500">1</div>
-            <div className="h-full bg-green-400">2</div>
-            <div className="h-[80px] bg-blue-400">3</div>
-          </div>
+          <Suspense fallback={<div className="w-full h-full center">Loading...</div>}>
+            <ReactPlayer
+              url={currentVideo?.toString()}
+              width="100%"
+              height="100%"
+              playing={true}
+              loop={true}
+              muted={true}
+              
+            />
+            {/* <div className="absolute inset-0 bg-black/20 flex flex-col justify-between ">
+              <div className="h-[80px] bg-red-500">1</div>
+              <div className="h-full bg-green-400">2</div>
+              <div className="h-[80px] bg-blue-400">3</div>
+            </div> */}
+          </Suspense>
         </div>
       </div>
     </>
