@@ -6,16 +6,60 @@
   --background: #ffffff;
   --foreground: #171717;
 }
+html {
+  scroll-behavior: smooth;
+}
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
+} */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "League Spartan", serif;
+}
+
+@layer utilities {
+  .soft {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .center {
+    @apply flex items-center justify-center;
+  }
+  .btn {
+    @apply py-2 px-4 text-white rounded-lg bg-primary center gap-2 font-light;
+  }
+  .h1 {
+    @apply text-4xl font-bold;
+  }
+  .h2 {
+    @apply text-3xl font-bold;
+  }
+  .h3 {
+    @apply text-2xl font-bold;
+  }
+  .h4 {
+    @apply text-xl font-bold;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.1s ease-in forwards;
 }
