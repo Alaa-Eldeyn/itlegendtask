@@ -1,20 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Accordion from "./Accordion";
 import ProgressBar from "./ProgressBar";
-import { content } from "@/data/data";
-
-
+import { useGlobalContext } from "@/utils/context";
+import { ContentItem } from "@/types/type";
 
 function CourseLessons() {
+  const oldContent = localStorage.getItem("data");
   const [openIndex, setOpenIndex] = useState<number>(1);
+  const { currentVideo } = useGlobalContext();
+  const [content, setContent] = useState<ContentItem[]>([]);
+  useEffect(() => {
+    setContent(oldContent ? JSON.parse(oldContent) : []);
+  }, [oldContent, currentVideo]);
   return (
     <div>
       <h2 className="text-2xl font-bold">Topics for this course</h2>
       <ProgressBar percentage={63} />
       <div className="border">
-        {content.map((item) => (
+        {content?.map((item) => (
           <Accordion
             key={item.id}
             index={item.id}

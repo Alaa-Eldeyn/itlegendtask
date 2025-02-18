@@ -1,11 +1,10 @@
 "use client";
 import { useGlobalContext } from "@/utils/context";
-import { LockKeyhole, NotepadText } from "lucide-react";
+import { Check, LockKeyhole, NotepadText } from "lucide-react";
 import { useState } from "react";
 import PDFModal from "./PDFModal";
 import TestModal from "./TestModal";
-import { ContentItem } from "@/types/type";
-
+import { accordionProps, ContentItem } from "@/types/type";
 
 const Accordion = ({
   title,
@@ -14,20 +13,14 @@ const Accordion = ({
   index,
   openIndex,
   setOpenIndex,
-}: {
-  title: string;
-  subtitle: string;
-  content: ContentItem[];
-  index: number;
-  openIndex: number;
-  setOpenIndex: React.Dispatch<React.SetStateAction<number>>;
-}) => {
+}: accordionProps) => {
   const isOpen = openIndex === index;
   const { setCurrentVideo } = useGlobalContext();
   const [pdfOpen, setPDFOpen] = useState(false);
   const [pdfFile, setPdfFile] = useState<ContentItem | null>(null);
   const [testOpen, setTestOpen] = useState(false);
   const [testData, setTestData] = useState<ContentItem | null>(null);
+
 
   const handleNextClick = (item: ContentItem): void => {
     switch (item.type) {
@@ -40,7 +33,7 @@ const Accordion = ({
         setTestOpen(true);
         break;
       case "video":
-        setCurrentVideo(item?.url || "");
+        setCurrentVideo({ ...item, url: item.url || "", watched: item.watched ?? false });
         break;
       default:
         break;
@@ -88,6 +81,11 @@ const Accordion = ({
                 onClick={() => handleNextClick(item)}
               >
                 <div className="flex items-center gap-2">
+                  {item.watched  && (
+                    <span className="bg-green-500 text-white rounded-lg   size-5">
+                      <Check />
+                    </span>
+                  )}
                   <NotepadText className="size-4 text-gray-500" />
                   <p className="pt-1">{item.title}</p>
                 </div>

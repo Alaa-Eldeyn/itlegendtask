@@ -1,8 +1,11 @@
 export interface ContentItem {
   id: number;
   title: string;
+  subtitle: string;
+  content: ContentItem[];
   type: string;
   url?: string;
+  watched?: boolean;
   questions?: {
     id: number;
     question: string;
@@ -42,4 +45,32 @@ export interface PlayerControlsProps {
 export interface VideoPlayerProps {
   isVideoExpanded: boolean;
   setIsVideoExpanded: (isVideoExpanded: boolean) => void;
+}
+
+export interface accordionProps {
+  title: string;
+  subtitle: string;
+  content: ContentItem[];
+  index: number;
+  openIndex: number;
+  setOpenIndex: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export interface ContextType {
+  currentVideo: {
+    id: number;
+    title: string;
+    type: string;
+    url: string;
+    watched: boolean;
+  };
+  setCurrentVideo: React.Dispatch<
+    React.SetStateAction<{
+      id: number;
+      title: string;
+      type: string;
+      url: string;
+      watched: boolean;
+    }>
+  >;
 }

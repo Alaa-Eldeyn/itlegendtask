@@ -40,10 +40,16 @@ const PlayerControls: ForwardRefRenderFunction<
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className="text-xl px-5 pt-2 h-[80px] font-bold text-white">
-        {currentVideo?.includes("youtu.be")
-          ? ""
-          : currentVideo?.split("/").pop()?.split(".")[0] ?? "No video playing"}
+      <div
+        onClick={() =>
+          setVideoPlayer({
+            ...videoPlayer,
+            isPlaying: !videoPlayer.isPlaying,
+          })
+        }
+        className="text-xl px-5 pt-2 lg:pt-4 h-[70px] font-bold text-white from-black/50 to-transparent bg-gradient-to-b"
+      >
+        {currentVideo?.type === "video" && currentVideo?.title}
       </div>
       <div
         onClick={() =>
@@ -61,7 +67,7 @@ const PlayerControls: ForwardRefRenderFunction<
           {videoPlayer.isPlaying ? <Pause /> : <Play />}
         </button>
       </div>
-      <div className="px-5 lg:pt-3 h-[80px]">
+      <div className="px-5 h-[70px] from-black/50 to-transparent bg-gradient-to-t">
         <TimeLine
           played={videoPlayer.played}
           onSeek={onSeek}

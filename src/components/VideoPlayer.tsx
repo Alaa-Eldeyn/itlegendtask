@@ -14,7 +14,7 @@ function VideoPlayer({
   isVideoExpanded,
   setIsVideoExpanded,
 }: VideoPlayerProps) {
-  const { currentVideo } = useGlobalContext();
+  const { currentVideo, setCurrentVideo } = useGlobalContext();
   const [videoPlayer, setVideoPlayer] = useState({
     isPlaying: false,
     muted: false,
@@ -48,6 +48,24 @@ function VideoPlayer({
         ...prevState,
         played: state.played,
       }));
+      if (state.played >= 0.8) {
+        setCurrentVideo({ ...currentVideo, watched: true });
+
+        const oldContent = localStorage.getItem("data");
+        if (oldContent) {
+          const parsedContent = JSON.parse(oldContent);
+          const newContent = parsedContent.map((item) => {
+            item.content = item.content.map((content) => {
+              if (content.id === currentVideo.id) {
+                content.watched = true;
+              }
+              return content;
+            });
+            return item;
+          });
+          localStorage.setItem("data", JSON.stringify(newContent));
+        }
+      }
     }
   };
 
@@ -116,7 +134,7 @@ function VideoPlayer({
           >
             <ReactVideoPlayer
               ref={playerRef}
-              url={currentVideo?.toString()}
+              url={currentVideo?.url?.toString()}
               width="100%"
               height="100%"
               playing={videoPlayer.isPlaying}
