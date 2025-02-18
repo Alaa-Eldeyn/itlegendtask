@@ -19,6 +19,7 @@ function CourseLessons() {
             key={item.id}
             index={item.id}
             title={item.title}
+            subtitle={item.subtitle}
             content={item.content}
             openIndex={openIndex}
             setOpenIndex={setOpenIndex}

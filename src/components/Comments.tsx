@@ -8,7 +8,7 @@ const comments = [
     id: 1,
     name: "Student Name Goes Here",
     date: "Oct 10, 2021",
-    avatar: "/course/course-details/2",
+    avatar: "/placeholder.jpg",
     comment:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
@@ -16,7 +16,7 @@ const comments = [
     id: 2,
     name: "Student Name Goes Here",
     date: "Oct 15, 2021",
-    avatar: "/course/course-details/2",
+    avatar: "/placeholder.jpg",
     comment:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
@@ -71,7 +71,7 @@ function Comments() {
               id: comments.length + 1,
               name: "Student Name Goes Here",
               date: "Oct 20, 2021",
-              avatar: "/course/course-details/2",
+              avatar: "/placeholder.jpg",
               comment: newComment,
             });
             setNewComment("");

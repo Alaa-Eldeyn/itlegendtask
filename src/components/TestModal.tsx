@@ -104,7 +104,10 @@ function TestModal({
               }}
             >
               {questions.map((question) => (
-                <div key={question.id} className="w-full flex-shrink-0">
+                <div
+                  key={question.id}
+                  className="w-full flex-shrink-0 select-none"
+                >
                   <div className="bg-white rounded-3xl p-6 shadow-xl mx-4">
                     <div className="mb-6">
                       <div className="text-lg font-medium mb-1">

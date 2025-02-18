@@ -21,12 +21,14 @@ export interface ContentItem {
 
 const Accordion = ({
   title,
+  subtitle,
   content,
   index,
   openIndex,
   setOpenIndex,
 }: {
   title: string;
+  subtitle: string;
   content: ContentItem[];
   index: number;
   openIndex: number;
@@ -38,7 +40,6 @@ const Accordion = ({
   const [pdfFile, setPdfFile] = useState<ContentItem | null>(null);
   const [testOpen, setTestOpen] = useState(false);
   const [testData, setTestData] = useState<ContentItem | null>(null);
-
 
   const handleNextClick = (item: ContentItem): void => {
     switch (item.type) {
@@ -64,21 +65,26 @@ const Accordion = ({
       {testOpen && <TestModal testData={testData} setOpen={setTestOpen} />}
       <button
         onClick={() => setOpenIndex(isOpen ? -1 : index)}
-        className="flex justify-between items-center gap-3 w-full px-5 py-3 rounded-3xl text-start font-medium outline-none"
+        className="flex justify-between items-center gap-5 w-full p-5 rounded-3xl text-start outline-none"
       >
-        <span className="font-bold text-lg">{title}</span>
-        <svg
-          className={`!size-10 max-w-5 transform transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M19 9l-7 7-7-7"></path>
-        </svg>
+        <div>
+          <p className="font-bold text-lg">{title}</p>
+          <span className="text-sm text-gray-400">{subtitle}</span>
+        </div>
+        <div>
+          <svg
+            className={`!size-10 max-w-5 transform transition-transform ${
+              isOpen ? "rotate-180" : ""
+            }`}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
       </button>
       <div
         className={`overflow-hidden text-start soft ${
@@ -95,7 +101,7 @@ const Accordion = ({
               >
                 <div className="flex items-center gap-2">
                   <NotepadText className="size-4 text-gray-500" />
-                  <span className="pt-1">{item.title}</span>
+                  <p className="pt-1">{item.title}</p>
                 </div>
                 <div>
                   {item.type === "pdf" ? (
