@@ -1,5 +1,4 @@
-import React from "react";
-import { ContentItem } from "./Accordion";
+import { ContentItem } from "@/types/type";
 
 const PDFModal = ({
   pdfFile,

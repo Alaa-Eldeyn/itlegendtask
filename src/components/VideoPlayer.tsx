@@ -6,13 +6,9 @@ import LoadingSpinner from "./LoadingSpinner";
 import PlayerControls from "./PlayerControls";
 import screenfull from "screenfull";
 import ReactPlayer from "react-player";
+import { VideoPlayerProps } from "@/types/type";
 
 const ReactVideoPlayer = dynamic(() => import("react-player"), { ssr: false });
-
-interface VideoPlayerProps {
-  isVideoExpanded: boolean;
-  setIsVideoExpanded: (isVideoExpanded: boolean) => void;
-}
 
 function VideoPlayer({
   isVideoExpanded,

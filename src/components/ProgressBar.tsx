@@ -1,5 +1,4 @@
 import { ChevronDown } from "lucide-react";
-import React from "react";
 
 const ProgressBar = ({ percentage }: { percentage: number }) => {
   return (
@@ -9,19 +8,19 @@ const ProgressBar = ({ percentage }: { percentage: number }) => {
         style={{ width: `${percentage}%` }}
       ></div>
       <div
-        className={`absolute -top-9 left-0 -translate-x-1/2 text-xs text-sky-600 border-gray-400 size-7 border rounded-full center pt-1`}
+        className={`absolute -top-9 left-0 -translate-x-1/2 text-xs text-blue-600 border-gray-400 size-7 border rounded-full center pt-1`}
         style={{ left: `${percentage}%` }}
       >
         <p>You</p>
       </div>
       <div
-        className={`absolute top-1 left-0 size-4 -translate-x-1/2 center text-sky-600`}
+        className={`absolute top-1 left-0 size-4 -translate-x-1/2 center text-blue-600`}
         style={{ left: `${percentage}%` }}
       >
         <ChevronDown />
       </div>
       <div
-        className={`absolute top-5 left-0 transform -translate-x-1/2 text-sky-600 text-sm rounded px-1`}
+        className={`absolute top-5 left-0 transform -translate-x-1/2 text-blue-600 text-sm rounded px-1`}
         style={{ left: `${percentage}%` }}
       >
         {percentage}%

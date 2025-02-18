@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { ContentItem } from "./Accordion";
 import { useSwipeable } from "react-swipeable";
 import { ChevronLeft, ChevronRight, Clock, X } from "lucide-react";
+import { ContentItem } from "@/types/type";
 
 function TestModal({
   testData,

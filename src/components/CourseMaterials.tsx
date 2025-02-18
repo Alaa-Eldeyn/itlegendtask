@@ -1,13 +1,6 @@
-import { Clock, LibraryBig, BookOpen, Globe, User } from "lucide-react";
+import { materials } from "@/data/data";
 
 export default function CourseMaterials() {
-  const materials = [
-    { id: 1, icon: <User />, label: "Instructor", value: "Edward Norton" },
-    { id: 2, icon: <Clock />, label: "Duration", value: "3 weeks" },
-    { id: 3, icon: <LibraryBig />, label: "Lessons", value: "8" },
-    { id: 4, icon: <BookOpen />, label: "Enrolled", value: "65 students" },
-    { id: 5, icon: <Globe />, label: "Language", value: "English" },
-  ];
   return (
     <div className="mx-auto bg-white p-6 rounded-lg shadow-xl mb-5">
       <h2 className="text-2xl font-bold mb-6">Course Materials</h2>

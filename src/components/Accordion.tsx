@@ -1,23 +1,11 @@
 "use client";
-
 import { useGlobalContext } from "@/utils/context";
 import { LockKeyhole, NotepadText } from "lucide-react";
 import { useState } from "react";
 import PDFModal from "./PDFModal";
 import TestModal from "./TestModal";
-export interface ContentItem {
-  id: number;
-  title: string;
-  type: string;
-  url?: string;
-  questions?: {
-    id: number;
-    question: string;
-    options: string[];
-  }[];
-  question?: number;
-  duration?: number;
-}
+import { ContentItem } from "@/types/type";
+
 
 const Accordion = ({
   title,

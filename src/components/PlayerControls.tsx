@@ -10,33 +10,7 @@ import {
 } from "lucide-react";
 import TimeLine from "./TimeLine";
 import { useGlobalContext } from "@/utils/context";
-
-interface PlayerControlsProps {
-  setVideoPlayer: React.Dispatch<
-    React.SetStateAction<{
-      isPlaying: boolean;
-      muted: boolean;
-      played: number;
-      seeking: boolean;
-    }>
-  >;
-  videoPlayer: {
-    isPlaying: boolean;
-    muted: boolean;
-    played: number;
-    seeking: boolean;
-  };
-  handleMute: () => void;
-  muted: boolean;
-  setIsVideoExpanded: (isVideoExpanded: boolean) => void;
-  isVideoExpanded: boolean;
-  handleFullScreen: () => void;
-  played: number;
-  onSeek: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSeekMouseDown: () => void;
-  onSeekMouseUp: (e: React.MouseEvent<HTMLInputElement>) => void;
-  isVisible: boolean;
-}
+import { PlayerControlsProps } from "@/types/type";
 
 const PlayerControls: ForwardRefRenderFunction<
   HTMLDivElement,

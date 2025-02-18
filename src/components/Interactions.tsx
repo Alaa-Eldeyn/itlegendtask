@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { FileUser, MessageCircleMore } from "lucide-react";
 import AskQuestion from "./AskQuestion";

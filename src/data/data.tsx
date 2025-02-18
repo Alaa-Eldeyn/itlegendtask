@@ -1,3 +1,5 @@
+import { Clock, LibraryBig, BookOpen, Globe, User } from "lucide-react";
+
 export const content = [
   {
     id: 1,
@@ -245,4 +247,31 @@ export const content = [
       },
     ],
   },
+];
+
+export const comments = [
+  {
+    id: 1,
+    name: "Student Name Goes Here",
+    date: "Oct 10, 2021",
+    avatar: "/placeholder.jpg",
+    comment:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+  {
+    id: 2,
+    name: "Student Name Goes Here",
+    date: "Oct 15, 2021",
+    avatar: "/placeholder.jpg",
+    comment:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  },
+];
+
+export const materials = [
+  { id: 1, icon: <User />, label: "Instructor", value: "Edward Norton" },
+  { id: 2, icon: <Clock />, label: "Duration", value: "3 weeks" },
+  { id: 3, icon: <LibraryBig />, label: "Lessons", value: "8" },
+  { id: 4, icon: <BookOpen />, label: "Enrolled", value: "65 students" },
+  { id: 5, icon: <Globe />, label: "Language", value: "English" },
 ];

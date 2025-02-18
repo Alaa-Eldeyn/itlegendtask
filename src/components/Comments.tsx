@@ -1,26 +1,9 @@
 "use client";
+import { comments } from "@/data/data";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const comments = [
-  {
-    id: 1,
-    name: "Student Name Goes Here",
-    date: "Oct 10, 2021",
-    avatar: "/placeholder.jpg",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: 2,
-    name: "Student Name Goes Here",
-    date: "Oct 15, 2021",
-    avatar: "/placeholder.jpg",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-];
 function Comments() {
   const [newComment, setNewComment] = useState("");
   return (
