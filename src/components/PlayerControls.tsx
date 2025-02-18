@@ -80,7 +80,10 @@ const PlayerControls: ForwardRefRenderFunction<
         }
         className="p-5 center"
       >
-        <button className="bg-white/90 text-black px-5 py-2 size-14 rounded-full center">
+        <button
+          aria-label="Play / pause"
+          className="bg-white/90 text-black px-5 py-2 size-14 rounded-full center"
+        >
           {videoPlayer.isPlaying ? <Pause /> : <Play />}
         </button>
       </div>

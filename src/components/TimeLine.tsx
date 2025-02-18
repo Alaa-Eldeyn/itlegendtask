@@ -35,6 +35,7 @@ function TimeLine({
         onMouseDown={onSeekMouseDown}
         onMouseUp={onSeekMouseUp}
         className="w-full opacity-0 absolute top-0 left-0 h-2 cursor-pointer"
+        aria-label="Seek"
       />
     </div>
   );

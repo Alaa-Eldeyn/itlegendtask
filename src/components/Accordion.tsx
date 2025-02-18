@@ -69,7 +69,7 @@ const Accordion = ({
       >
         <div>
           <p className="font-bold text-lg">{title}</p>
-          <span className="text-sm text-gray-400">{subtitle}</span>
+          <span className="text-sm text-gray-700">{subtitle}</span>
         </div>
         <div>
           <svg
