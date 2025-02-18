@@ -70,7 +70,11 @@ function Comments() {
             comments.push({
               id: comments.length + 1,
               name: "Student Name Goes Here",
-              date: "Oct 20, 2021",
+              date: new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              }),
               avatar: "/placeholder.jpg",
               comment: newComment,
             });
