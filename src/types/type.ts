@@ -1,18 +1,25 @@
+export interface Question {
+  id: number;
+  question: string;
+  options: string[];
+}
+
 export interface ContentItem {
+  id: number;
+  title: string;
+  type: string;
+  url?: string;
+  watched: boolean;
+  duration?: number;
+  question?: number;
+  questions?: Question[];
+}
+
+export interface Content {
   id: number;
   title: string;
   subtitle: string;
   content: ContentItem[];
-  type: string;
-  url?: string;
-  watched?: boolean;
-  questions?: {
-    id: number;
-    question: string;
-    options: string[];
-  }[];
-  question?: number;
-  duration?: number;
 }
 
 export interface PlayerControlsProps {
@@ -54,23 +61,4 @@ export interface accordionProps {
   index: number;
   openIndex: number;
   setOpenIndex: React.Dispatch<React.SetStateAction<number>>;
-}
-
-export interface ContextType {
-  currentVideo: {
-    id: number;
-    title: string;
-    type: string;
-    url: string;
-    watched: boolean;
-  };
-  setCurrentVideo: React.Dispatch<
-    React.SetStateAction<{
-      id: number;
-      title: string;
-      type: string;
-      url: string;
-      watched: boolean;
-    }>
-  >;
 }

@@ -32,11 +32,7 @@ const Accordion = ({
         setTestOpen(true);
         break;
       case "video":
-        setCurrentVideo({
-          ...item,
-          url: item.url || "",
-          watched: item.watched ?? false,
-        });
+        setCurrentVideo(item);
         break;
       default:
         break;

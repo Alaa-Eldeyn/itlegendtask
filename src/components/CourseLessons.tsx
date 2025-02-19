@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 import Accordion from "./Accordion";
 import ProgressBar from "./ProgressBar";
 import { useGlobalContext } from "@/utils/context";
-import { ContentItem } from "@/types/type";
+import { Content } from "@/types/type";
 
 function CourseLessons() {
   const oldContent = localStorage.getItem("data");
   const [openIndex, setOpenIndex] = useState<number>(1);
   const { currentVideo } = useGlobalContext();
-  const [content, setContent] = useState<ContentItem[]>([]);
+  const [content, setContent] = useState<Content[]>([]);
   useEffect(() => {
     setContent(oldContent ? JSON.parse(oldContent) : []);
   }, [oldContent, currentVideo]);
   return (
-    <div >
+    <div>
       <h2 className="text-2xl font-bold">Topics for this course</h2>
       <ProgressBar percentage={63} />
       <div className="border">

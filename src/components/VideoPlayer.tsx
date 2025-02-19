@@ -48,15 +48,13 @@ function VideoPlayer({
         ...prevState,
         played: state.played,
       }));
+      let newContent;
       if (state.played >= 0.8) {
         setCurrentVideo({ ...currentVideo, watched: true });
-
         const oldContent = localStorage.getItem("data");
         if (oldContent) {
           const parsedContent = JSON.parse(oldContent);
-          const newContent: Array<{
-            content: Array<{ id: string; watched: boolean }>;
-          }> = parsedContent.map(
+          newContent = parsedContent.map(
             (item: { content: Array<{ id: string; watched: boolean }> }) => {
               item.content = item.content.map(
                 (content: { id: string; watched: boolean }) => {
@@ -70,6 +68,17 @@ function VideoPlayer({
             }
           );
           localStorage.setItem("data", JSON.stringify(newContent));
+        }
+      }
+      if (state.played === 1) {
+        const nextVideoIndex = currentVideo.id + 1;
+        let nextVideo = newContent[0]?.content[nextVideoIndex];
+        if (nextVideo?.type !== "video") {
+          nextVideo = newContent[0]?.content[nextVideoIndex + 1];
+        }
+        if (nextVideo) {
+          setCurrentVideo(nextVideo);
+          setVideoPlayer((prev) => ({ ...prev, played: 0, isPlaying: true }));
         }
       }
     }

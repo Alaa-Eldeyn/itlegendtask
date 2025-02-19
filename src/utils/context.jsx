@@ -1,33 +1,16 @@
 "use client";
 import { content } from "@/data/data";
-import { ContextType } from "@/types/type";
+import { ContentItem } from "@/types/type";
 import { createContext, useContext, useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
-export const Context = createContext<ContextType>({
-  currentVideo: {
-    id: 0,
-    title: "",
-    type: "",
-    url: "",
-    watched: false,
-  },
-  setCurrentVideo: () => {},
+export const Context = createContext({
+  currentVideo: content[0]?.content[0],
+  setCurrentVideo: (item) => {},
 });
 
-export const Provider = ({ children }: { children: React.ReactNode }) => {
-  const [currentVideo, setCurrentVideo] = useState<{
-    id: number;
-    title: string;
-    type: string;
-    url: string;
-    watched: boolean;
-  }>({
-    id: 0,
-    title: "",
-    type: "",
-    url: "",
-    watched: false,
-  });
+export const Provider = ({ children }) => {
+  const [currentVideo, setCurrentVideo] = useState(content[0]?.content[0]);
 
   useEffect(() => {
     const storedContent = localStorage.getItem("data");
