@@ -21,15 +21,13 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
     type: string;
     url: string;
     watched: boolean;
-  }>(
-    JSON.parse(localStorage.getItem("data") || "")[0]?.content[0] || {
-      id: 0,
-      title: "",
-      type: "",
-      url: "",
-      watched: false,
-    }
-  );
+  }>({
+    id: 0,
+    title: "",
+    type: "",
+    url: "",
+    watched: false,
+  });
 
   useEffect(() => {
     const storedContent = localStorage.getItem("data");
