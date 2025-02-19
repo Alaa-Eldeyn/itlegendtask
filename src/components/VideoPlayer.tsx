@@ -54,15 +54,21 @@ function VideoPlayer({
         const oldContent = localStorage.getItem("data");
         if (oldContent) {
           const parsedContent = JSON.parse(oldContent);
-          const newContent = parsedContent.map((item) => {
-            item.content = item.content.map((content) => {
-              if (content.id === currentVideo.id) {
-                content.watched = true;
-              }
-              return content;
-            });
-            return item;
-          });
+          const newContent: Array<{
+            content: Array<{ id: string; watched: boolean }>;
+          }> = parsedContent.map(
+            (item: { content: Array<{ id: string; watched: boolean }> }) => {
+              item.content = item.content.map(
+                (content: { id: string; watched: boolean }) => {
+                  if (content.id.toString() === currentVideo.id.toString()) {
+                    content.watched = true;
+                  }
+                  return content;
+                }
+              );
+              return item;
+            }
+          );
           localStorage.setItem("data", JSON.stringify(newContent));
         }
       }
