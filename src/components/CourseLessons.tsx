@@ -15,7 +15,7 @@ function CourseLessons() {
     setContent(oldContent ? JSON.parse(oldContent) : []);
   }, [oldContent, currentVideo]);
   return (
-    <div>
+    <div >
       <h2 className="text-2xl font-bold">Topics for this course</h2>
       <ProgressBar percentage={63} />
       <div className="border">

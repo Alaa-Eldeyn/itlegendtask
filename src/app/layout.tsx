@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { League_Spartan } from "next/font/google";
+import { League_Spartan, Cairo } from "next/font/google";
 import "./globals.css";
 import { Provider } from "@/utils/context";
 
 const spartan = League_Spartan({
   variable: "--font-spartan",
   subsets: ["latin"],
+});
+const cairo = Cairo({
+  variable: "--font-cairo",
+  subsets: ["arabic"],
 });
 
 export const metadata: Metadata = {
@@ -21,7 +25,9 @@ export default function RootLayout({
   return (
     <Provider>
       <html lang="en">
-        <body className={`${spartan.variable} antialiased`}>{children}</body>
+        <body className={`${spartan.variable} ${cairo.variable} antialiased`}>
+          {children}
+        </body>
       </html>
     </Provider>
   );

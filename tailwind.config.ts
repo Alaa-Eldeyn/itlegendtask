@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        cairo: "var(--font-cairo)",
+      },
       container: {
         center: true,
         padding: "1rem",

@@ -12,6 +12,15 @@ function Page() {
 
   return (
     <main className="container py-2 grid grid-cols-12 gap-5 lg:gap-10">
+      {/* lg screen && normal video */}
+      {!isVideoExpanded && (
+        <aside
+          id="curriculum"
+          className="hidden lg:block col-span-4 mt-28 order-1"
+        >
+          <CourseLessons />
+        </aside>
+      )}
       <section
         className={`col-span-12 ${
           isVideoExpanded ? "lg:!col-span-12" : "lg:!col-span-8"
@@ -46,13 +55,6 @@ function Page() {
           </>
         )}
       </section>
-
-      {/* lg screen && normal video */}
-      {!isVideoExpanded && (
-        <aside id="curriculum" className="hidden lg:block col-span-4 mt-28">
-          <CourseLessons />
-        </aside>
-      )}
     </main>
   );
 }

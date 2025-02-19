@@ -21,7 +21,6 @@ const Accordion = ({
   const [testOpen, setTestOpen] = useState(false);
   const [testData, setTestData] = useState<ContentItem | null>(null);
 
-
   const handleNextClick = (item: ContentItem): void => {
     switch (item.type) {
       case "pdf":
@@ -33,7 +32,11 @@ const Accordion = ({
         setTestOpen(true);
         break;
       case "video":
-        setCurrentVideo({ ...item, url: item.url || "", watched: item.watched ?? false });
+        setCurrentVideo({
+          ...item,
+          url: item.url || "",
+          watched: item.watched ?? false,
+        });
         break;
       default:
         break;
@@ -81,11 +84,6 @@ const Accordion = ({
                 onClick={() => handleNextClick(item)}
               >
                 <div className="flex items-center gap-2">
-                  {item.watched  && (
-                    <span className="bg-green-500 text-white rounded-lg   size-5">
-                      <Check />
-                    </span>
-                  )}
                   <NotepadText className="size-4 text-gray-500" />
                   <p className="pt-1">{item.title}</p>
                 </div>
@@ -95,6 +93,8 @@ const Accordion = ({
                       <p className="bg-green-50 text-center text-green-500 py-1 px-2 rounded-lg text-sm">{`${item.question} Questions`}</p>
                       <p className="bg-red-50 text-center text-red-500 py-1 px-2 rounded-lg text-sm">{`${item.duration} min`}</p>
                     </div>
+                  ) : item.watched ? (
+                    <Check className="bg-green-500 text-white rounded-lg   size-5" />
                   ) : (
                     <LockKeyhole className="size-4 text-gray-500" />
                   )}
