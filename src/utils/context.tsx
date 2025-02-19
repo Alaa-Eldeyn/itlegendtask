@@ -15,7 +15,21 @@ export const Context = createContext<ContextType>({
 });
 
 export const Provider = ({ children }: { children: React.ReactNode }) => {
-  const [currentVideo, setCurrentVideo] = useState(null);
+  const [currentVideo, setCurrentVideo] = useState<{
+    id: number;
+    title: string;
+    type: string;
+    url: string;
+    watched: boolean;
+  }>(
+    JSON.parse(localStorage.getItem("data") || "")[0]?.content[0] || {
+      id: 0,
+      title: "",
+      type: "",
+      url: "",
+      watched: false,
+    }
+  );
 
   useEffect(() => {
     const storedContent = localStorage.getItem("data");
