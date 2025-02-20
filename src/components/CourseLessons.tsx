@@ -7,7 +7,7 @@ import { useGlobalContext } from "@/utils/context";
 import { Content } from "@/types/type";
 
 function CourseLessons() {
-  const oldContent = localStorage.getItem("data");
+  const oldContent = localStorage.getItem("content");
   const [openIndex, setOpenIndex] = useState<number>(1);
   const { currentVideo } = useGlobalContext();
   const [content, setContent] = useState<Content[]>([]);

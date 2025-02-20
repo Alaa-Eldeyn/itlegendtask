@@ -13,12 +13,12 @@ export const Provider = ({ children }) => {
   const [currentVideo, setCurrentVideo] = useState(content[0]?.content[0]);
 
   useEffect(() => {
-    const storedContent = localStorage.getItem("data");
+    const storedContent = localStorage.getItem("content");
     if (storedContent) {
       const parsedContent = JSON.parse(storedContent);
       setCurrentVideo(parsedContent[0]?.content[0]);
     } else {
-      localStorage.setItem("data", JSON.stringify(content));
+      localStorage.setItem("content", JSON.stringify(content));
     }
   }, []);
 

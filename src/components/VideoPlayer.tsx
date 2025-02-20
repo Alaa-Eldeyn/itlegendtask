@@ -51,7 +51,7 @@ function VideoPlayer({
       let newContent;
       if (state.played >= 0.8) {
         setCurrentVideo({ ...currentVideo, watched: true });
-        const oldContent = localStorage.getItem("data");
+        const oldContent = localStorage.getItem("content");
         if (oldContent) {
           const parsedContent = JSON.parse(oldContent);
           newContent = parsedContent.map(
@@ -67,7 +67,7 @@ function VideoPlayer({
               return item;
             }
           );
-          localStorage.setItem("data", JSON.stringify(newContent));
+          localStorage.setItem("content", JSON.stringify(newContent));
         }
       }
       if (state.played === 1) {

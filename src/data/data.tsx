@@ -118,7 +118,7 @@ export const content = [
         type: "pdf",
         question: 0,
         duration: 10,
-        url: "https://drive.google.com/file/d/1yy9W7FwY_dANqYQe2g3w1xHErDAT5TvO/view?usp=sharing",
+        url: "/Alaa Abdelnaser Hasan resume.pdf",
         watched: false,
       },
       {
